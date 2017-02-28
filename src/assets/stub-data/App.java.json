@@ -1,0 +1,94 @@
+{
+    "totalCnt": 1,
+    "pageNumber": 1,
+    "resp": {
+        "path": "/sample/tstPrj1/src/main/java/com/fico/sample/App.java",
+        "availableValues": ["java.util.Date"],
+        "lines": [
+            {
+                "lineCode": "package com.fico.sample;",
+                "author": {
+                    "skills": [],
+                    "authorEmail": "AuthorUnkwnown_fakeEmail@fico.com",
+                    "dateLatestSeen": null,
+                    "dateFirstSeen": null,
+                    "authorName": "Author Unkwnown (Placeholder ac)",
+                    "profile": "",
+                    "__IndexClzId": "Author"
+                },
+                "lineNumber": 1,
+                "issues": []
+            },
+            {
+                "lineCode": "",
+                "lineNumber": 2,
+                "issues": []
+            },
+            {
+                "lineCode": "/**",
+                "lineNumber": 3,
+                "issues": []
+            },
+            {
+                "lineCode": " * Hello world!",
+                "lineNumber": 4,
+                "issues": []
+            },
+            {
+                "lineCode": " *",
+                "lineNumber": 5,
+                "issues": []
+            },
+            {
+                "lineCode": " */",
+                "lineNumber": 6,
+                "issues": []
+            },
+            {
+                "lineCode": "public class App ",
+                "lineNumber": 7,
+                "issues": []
+            },
+            {
+                "issue_size": 1,
+                "lineCode": "{",
+                "lineNumber": 8,
+                "issues": [
+                    {
+                        "shortMsg": "All methods are static. Consider using a utility class instead. Alternatively, you could add a private constructor or make the class abstract to silence this warning.",
+                        "longHtml": "## UseUtilityClass<br /><br />Since: PMD 0.3<br /><br />Priority: Medium<br /><br />[Categories](https://github.com/codeclimate/spec/blob/master/SPEC.md#categories): Style<br /><br />[Remediation Points](https://github.com/codeclimate/spec/blob/master/SPEC.md#remediation-points): 50000<br /><br />For classes that only have static methods, consider making them utility classes. Note that this doesn't apply to abstract classes, since their subclasses may well include non-static methods. Also, if you want this class to be a utility class, remember to add a private constructor to prevent instantiation. (Note, that this use was known before PMD 5.1.0 as UseSingleton).<br /><br />### Example:<br /><br />```java<br /><br /><br />public class MaybeAUtility {<br /> public static void foo() {}<br /> public static void bar() {}<br />}<br /><br /> <br />``` <br /><br />### [PMD properties](http://pmd.github.io/pmd-5.5.3/customizing/pmd-developer.html)<br /><br />Name | Value | Description<br />--- | --- | ---<br />violationSuppressRegex | | Suppress violations with messages matching a regular expression<br />violationSuppressXPath | | Suppress violations on nodes which match a given relative XPath expression.<br />",
+                        "fromLine": 8,
+                        "typeId": "PMD",
+                        "toLine": 13
+                    }
+                ]
+            },
+            {
+                "lineCode": "    public static void main( String[] args )",
+                "lineNumber": 9,
+                "issues": []
+            },
+            {
+                "lineCode": "    {",
+                "lineNumber": 10,
+                "issues": []
+            },
+            {
+                "lineCode": "        System.out.println( \"Hello World! At \" + new java.util.Date() );",
+                "lineNumber": 11,
+                "issues": []
+            },
+            {
+                "lineCode": "    }",
+                "lineNumber": 12,
+                "issues": []
+            },
+            {
+                "lineCode": "}",
+                "lineNumber": 13,
+                "issues": []
+            }
+        ]
+    },
+    "perPageCnt": 1
+}
