@@ -4,7 +4,7 @@
   <div class="col-lg-4 col-md-5 col-sm-12 left">
 
     <ul class="stack-trace">
-      <li *ngFor="let stackTrace of stackTraces" (click)="setSelectedStack(stackTrace)" [ngClass]="{'selected': stackTrace == selectedStack}">{{stackTrace.error}}</li>
+      <li *ngFor="let stack of stackTrace" (click)="setSelectedStack(stack)" [ngClass]="{'selected': stack == selectedStack}">{{stack.class_name}}.{{stack.method_name}}</li>
     </ul>
 
   </div>
@@ -13,8 +13,8 @@
   <button type="button" class="btn btn-success" popover="Vivamus sagittis."popoverTitle="Dismissible popover" triggers="focus">button</button>-->
 
   <div class="col-lg-8 col-md-7 col-sm-12 right" style="display: block; color: #c8c8c8;">
-    <div class="file-name" *ngIf="sourceCode?.resp.path"><h4>{{sourceCode?.resp.path}}</h4></div> 
-    <div *ngFor="let line of sourceCode?.resp?.lines">
+    <div class="file-name" *ngIf="selectedStack"><h4>{{selectedStack.class_name}}.{{selectedStack.method_name}}</h4></div> 
+    <div *ngFor="let line of sourceCode?.source">
       <div>
 
         <div class="line-number">{{line.lineNumber}}</div>
@@ -23,7 +23,7 @@
           <div [ngSwitch]="isArray(line.lineCode)">
             <div *ngSwitchCase="false" style="white-space: pre;">{{line.lineCode}}</div>
             <div *ngSwitchCase="true">
-              <span *ngFor="let li of line.lineCode"><span [ngSwitch]="li.isValueAvailable"><span *ngSwitchCase="false" style="white-space: pre;">{{li.line}}</span><span *ngSwitchCase="true" style="white-space: pre;"><button  #pop="bs-popover" (click)="getValue(pop, li.line)" [popover]="availableValues[li.line]" triggers="focus" type="button" class="variable">{{li.line}}</button></span></span></span>
+              <span *ngFor="let li of line.lineCode"><span [ngSwitch]="li.isValueAvailable"><span *ngSwitchCase="false" style="white-space: pre;">{{li.line}}</span><span *ngSwitchCase="true" style="white-space: pre;"><button  #pop="bs-popover" [popover]="getVariableValue(li.line)" triggers="focus" type="button" class="variable">{{li.line}}</button></span></span></span>
             </div>
           </div>
         </div>

@@ -8,9 +8,11 @@ import { PopoverModule } from 'ng2-bootstrap/popover';
 import { TooltipModule } from 'ng2-bootstrap/tooltip';
 
 import { AppComponent } from './app.component';
+import { LogsComponent } from './logs/logs.component';
+import { LogsService } from './logs/logs.service';
 import { StackTraceComponent } from './stack-trace/stack-trace.component';
 import { StackTraceService } from './stack-trace/stack-trace.service';
-import { LogsComponent } from './logs/logs.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { LogsComponent } from './logs/logs.component';
     TooltipModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [StackTraceService],
+  providers: [LogsService, StackTraceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

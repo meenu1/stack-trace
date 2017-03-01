@@ -1,0 +1,68 @@
+ {
+        "_index": "flame",
+        "_type": "stack",
+        "_id": "AVqD_O2rIOFGaMfI7i3I",
+        "_score": 1,
+        "_source": {
+          "Exception_name": "check",
+          "line number": 34,
+          "stack trace": [
+            {
+              "method source ": "xyz",
+              "variables": {
+                "this": "example@15db9742",
+                "p": "20",
+                "q": "1",
+                "r": "2",
+                "int1": "45",
+                "obj1": "NewClass@7852e922"
+              },
+              "method_name": "except",
+			  "class_name": "Builder"
+            },
+            {
+              "method source ": "xyz",
+              "variables": {
+                "this": "example@15db9742",
+                "flag": "20"
+              },
+              "method_name": "do_work",
+              "class_name": "Util"
+            },
+            {
+              "method source ": "xyz",
+              "variables": {
+                "args": "",
+                "e": "example@15db9742",
+                "s": "sachin",
+                "m": "maurya",
+                "var1": "100.000000",
+                "var2": "83",
+                "i": "10",
+                "pqr": [
+                    10,
+                    12,
+                    13,
+                    14,
+                    1,
+                    4
+                ],
+                "bool_ar": [
+                    true,
+                    false,
+                    true,
+                    true,
+                    false
+                ],
+                "str": [
+                    "hello",
+                    "world",
+                    "how"
+                ]
+              },
+              "method_name": "main",
+              "class_name": "Fico"
+            }
+          ]
+        }
+      }

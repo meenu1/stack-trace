@@ -10,7 +10,7 @@ const routes: Routes = [
     component: LogsComponent
   },
   {
-    path: 'stack-trace/:logId',
+    path: 'stack-trace/:id',
     component: StackTraceComponent
   },
    { path: '',   redirectTo: '/logs', pathMatch: 'full' },

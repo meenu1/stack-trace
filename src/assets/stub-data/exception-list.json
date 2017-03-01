@@ -1,0 +1,12 @@
+{
+    "exceptionList": [
+        {
+            "shortDesc": "exception shortDesc 1",
+            "id": "1"
+        },
+        {
+            "shortDesc": "exception shortDesc 2",
+            "id": "2"
+        }
+    ]
+}
