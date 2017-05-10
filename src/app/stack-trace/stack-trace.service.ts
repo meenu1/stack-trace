@@ -11,7 +11,6 @@ export class StackTraceService {
   constructor(private http: Http) { }
 
   getStackTrace(id: string) {
-    console.info('getStackTrace(): id:', id);
 
     let url = '/detail?id='+ id;
     url = 'assets/stub-data/stack-trace.json';
@@ -22,18 +21,10 @@ export class StackTraceService {
 
   }
 
-  getSourceCode(file: string) {
-    return this.http.get('assets/stub-data/App.java.json')
-      .map((res: Response) => {
-        return res.json();
-      });
-
-  }
-
   getValue(keyword: string) {
     return this.http.get('assets/stub-data/values.json')
       .map((res: Response) => {
-        return res.json();
+        return res.json()[0];
       });
 
   }

@@ -1,14 +1,16 @@
 $leftPannelBgColor: #484e55;
 
-.row{
+.main-container{
     display: flex;
+    border: 8px solid #484e55;
+    border-left:0;
+    height: 366px;
+    
 }
 .left{
   display : flex;
-  /*justify-content : center;
-  align-items : center;*/
-  background-color: $leftPannelBgColor;
-  /*height : 100%;*/
+  background-color: #272b30;
+  border-right: 8px solid #484e55;
   color : #FFF;
   padding: 10px;
 
@@ -17,10 +19,11 @@ $leftPannelBgColor: #484e55;
   display : flex;
   justify-content : center;
   align-items : center;
-  background-color:#3e444c;
-  /*height : 100%;*/
+  background-color:#272b30;
   color : #FFF;
-  padding: 10px;
+  padding: 2px;
+  height: 349px;
+  overflow: auto;
 }
 @media (max-width: 1200px) { 
   .left{
@@ -38,11 +41,14 @@ $leftPannelBgColor: #484e55;
     li{
         cursor: pointer;
         border-left: solid 5px $leftPannelBgColor;
-        padding: 5px;
-        &.selected,
+        padding: 10px;
+        padding-left: 15px;
         &:hover{
-            text-decoration: underline;
-            border-left: solid 5px #FFF;
+            text-decoration: underline;  
+        }
+        &.selected{
+          border-left: solid 5px rgba(91, 192, 222, 0.76);
+          color: rgba(91, 192, 222, 0.76);
         }
     }
 }
@@ -50,8 +56,7 @@ $leftPannelBgColor: #484e55;
 .file-name{
     background-color: #565a5f;
     padding: 5px;
-    /*margin: 0 0 5px -4px;*/
-    margin-bottom: 10px;
+    margin-bottom: 2px;
     color: #FFF;
 }
 .line-number {
@@ -64,12 +69,60 @@ $leftPannelBgColor: #484e55;
 
 .line-code {
   display: inline-block;
-  /*white-space: pre;*/
 }
 
 .variable{
-    background-color: transparent; 
+    background-color: #7a8288; 
     border: none; 
     padding: 0; 
     border-bottom: 1px dotted #FFF;
 }
+h4{
+    font-size: 14px;
+    margin: 0;
+}
+.file-name + .row{
+    margin-right: 0;
+}
+.recorded-variables, table{
+  background-color: #fff;
+  color:#5d6368;
+  .header{
+        background-color: rgba(138, 80, 146, 0.82);
+        color:#fff;
+        padding: 9px;
+  }
+  .glyphicon-triangle-bottom{
+    cursor: pointer;
+    color:#cccccc;
+    top: -4px;
+  }
+  .recorded-variable-popup{
+    overflow: auto;
+    max-height: 280px;
+    padding-bottom: 11px;
+    padding-top: 6px;
+  }
+}
+.ellipses{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.recorded-variables {
+    .col-md-6{
+      padding-top: 4px;
+      padding-bottom: 4px;
+      padding-right: 0;
+    }
+}
+.manage-object{
+    display: inline-block;
+    width: 80%;
+}
+.program-stack{
+  margin-bottom: 5px;
+}
+.close-accordion{
+     display:none
+   }

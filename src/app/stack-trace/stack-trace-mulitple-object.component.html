@@ -1,0 +1,58 @@
+<div *ngIf="checkValueOrObject(stackTraceObject,stackTraceValue)" class="col-md-12">
+
+    <div *ngIf= "!checkArray(stackTraceObject[stackTraceValue])" >
+        <div class="object-expand" *ngFor='let key of stackTraceObject[stackTraceValue] | keys'>
+            <div class="col-md-6">{{key.key}}</div>
+            <div class="col-md-6 ellipses" *ngIf="!checkValueOrObject(stackTraceObject[stackTraceValue],key.key)"> {{key.value}}</div>
+            <div class="col-md-6 show-more" *ngIf="checkValueOrObject(stackTraceObject[stackTraceValue],key.key)" (click)="staticModal.show()">Show More..</div>
+            <!-- Modal Starts--> 
+            <!--<div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
+                tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title pull-left">Static modal</h4>
+                            <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="object-expand" *ngFor='let key of key.value | keys'>
+                                <div class="col-md-6">{{key.key}}</div>
+                                <div class="col-md-6 ellipses"> {{key.value}}</div>
+                                    
+                        </div>
+                        </div>
+                    </div>
+            </div>-->
+            <!--<show-multiple-object [stackTraceObject]="stackTraceObject[stackTraceValue]" [stackTraceValue]="key.key" ></show-multiple-object>-->
+        </div>
+        
+        <!-- Modal Ends--> 
+    </div>
+    <div *ngIf= "checkArray(stackTraceObject[stackTraceValue])" >
+       
+        <div class="object-expand" *ngFor='let key of stackTraceObject[stackTraceValue];let i = index'>
+                <div class="col-md-6">{{i}}</div>
+                <div class="col-md-6 ellipses"  *ngIf="!checkValueOrObject(stackTraceObject[stackTraceValue],i)" > {{stackTraceObject[stackTraceValue][i]}}</div>
+                <div class="col-md-6 show-more" *ngIf="checkValueOrObject(stackTraceObject[stackTraceValue],i)" (click)="staticModal.show()">Show More..</div>
+               
+                <div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
+                tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title pull-left">Recorded Variable</h4>
+                            <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                       
+                             <show-multiple-object-in-modal [modalObject]="stackTraceObject[stackTraceValue][i]" ></show-multiple-object-in-modal>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

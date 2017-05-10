@@ -1,5 +1,5 @@
 <h4>Exceptions</h4>
 
 <div class="row" *ngFor="let exception of exceptionList">
-  <div class="col-xs-12"><a [routerLink]="['/stack-trace', exception.id]">{{exception.shortDesc}}</a></div>
+  <div class="col-xs-12"><a [routerLink]="['/stack-trace', exception.exceptionId]">{{exception.exceptionName}}</a></div>
 </div>

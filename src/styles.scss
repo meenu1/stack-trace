@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+.popover-content{
+    background-color: rgba(223, 157, 232, 0.66);
+    border: 0;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: none;
+    color:#393333;
+    font-size: 12px;
+}
+.popover.top>.arrow:after{
+    border-top-color:  rgba(223, 157, 232, 0.66);
+}
+.popover.top>.arrow{
+    bottom: -10px;
+}
+.popover-title {
+    background-color: rgba(138, 80, 146, 0.82);
+    border-bottom: 0px;
+    text-align: center;
+}
+.popover-title + .popover-content{
+    border-radius : 0 0 5px 5px;
+}
+.popover.top{
+    margin-top: -11px;
+    border: 0;
+}
+.modal-content{
+    background-color: #fff;
+}
+.modal-body{
+    height: 320px;
+    overflow: auto;
+}

@@ -1,0 +1,37 @@
+<div class="col-md-12" *ngIf="modalObject !=null || modalObject!=undefined">
+
+    <div *ngIf= "!checkArray(modalObject)" >
+        <div class="modal-object-expand" *ngFor='let data of modalObject | keys'>
+            <div class="col-md-6">{{data.key}}</div>
+            <!--<div class="col-md-6 object-available" *ngIf="checkValueOrObject(modalObject,data.key)" >
+                <span class="glyphicon glyphicon-triangle-bottom"></span>
+            </div>-->
+            <div class="col-md-6 ellipses" *ngIf="!checkValueOrObject(modalObject,data.key)"> {{data.value}}</div>
+            <div class="col-md-6 show-more" *ngIf="checkValueOrObject(modalObject,data.key)" >Show More...</div>
+           
+           
+            <show-multiple-object-in-modal class="close-accordion" *ngIf="checkValueOrObject(modalObject,data.key)" [modalObject]="modalObject[data.key]" ></show-multiple-object-in-modal>
+        </div>
+      
+    </div>
+    <div *ngIf= "checkArray(modalObject)" >
+        <div class="modal-object-expand" *ngFor='let data of modalObject;let i = index'>
+            <div class="col-md-6">{{i}}</div>
+            <!--<div class="col-md-6 object-available" *ngIf="checkValueOrObject(modalObject,data.key)" >
+                <span class="glyphicon glyphicon-triangle-bottom"></span>
+            </div>-->
+            <div class="col-md-6 ellipses" *ngIf="!checkValueOrObject(modalObject,i)"> {{data}}</div>
+            <div class="col-md-6 show-more" *ngIf="checkValueOrObject(modalObject,i)" >Show More...</div>
+            
+           
+            <show-multiple-object-in-modal class="close-accordion" *ngIf="checkValueOrObject(modalObject,i)" [modalObject]="modalObject[i]" ></show-multiple-object-in-modal>
+        </div>
+        <!--<div class="object-expand" *ngFor='let key of modalObject[modalValue];let i = index'>
+                <div class="col-md-6">{{i}}</div>
+                <div class="col-md-6 ellipses"  *ngIf="!checkValueOrObject(modalObject[modalValue],i)" > {{modalObject[modalValue][i]}}</div>
+                <div class="col-md-6 show-more" *ngIf="checkValueOrObject(modalObject[modalValue],i)" (click)="showMore()">Show More..</div>
+                <show-multiple-object-in-modal [modalObject]="modalObject[modalValue]" [modalValue]="i" ></show-multiple-object-in-modal>
+            </div>
+        </div>-->
+    </div>
+  </div>

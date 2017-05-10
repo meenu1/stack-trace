@@ -13,21 +13,9 @@ export class LogsComponent implements OnInit {
   constructor(private logsService: LogsService) { }
 
   ngOnInit() {
-    /*this.exceptionList = [
-        {
-            "shortDesc": "exception shortDesc 1",
-            "id": "1"
-        },
-        {
-            "shortDesc": "exception shortDesc 2",
-            "id": "2"
-        }
-    ];*/
 
     this.logsService.getExceptionList().subscribe((repsonse) => {
-      console.info("repsonse:", repsonse);
-
-      this.exceptionList = repsonse.exceptionList;
+      this.exceptionList = repsonse;
     });
   }
 

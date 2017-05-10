@@ -1,12 +1,5 @@
-{
-    "exceptionList": [
-        {
-            "shortDesc": "exception shortDesc 1",
-            "id": "1"
-        },
-        {
-            "shortDesc": "exception shortDesc 2",
-            "id": "2"
-        }
-    ]
-}
+[{
+	"exceptionName": "Exception",
+	"exceptionCatchTime": "1491980030",
+	"exceptionId": "95d89683-d1cb-40a2-b7c9-e7927348727e"
+}]

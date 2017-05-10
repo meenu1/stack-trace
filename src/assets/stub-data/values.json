@@ -1,3 +1,80 @@
-{
-    "val": "Fri Feb 24 09:54:02 UTC 2017"
-}
+[
+	[{
+		"Variables": {
+			"p": 20,
+			"q": 1,
+			"r": 2,
+			"int1": "45",
+			"this": {
+				"hello_var": "2000",
+				"chang": "G"
+			},
+			"obj1": {
+				"p1": "10",
+				"p2": "20"
+			}
+		},
+		"Class_Name": "SampleTest",
+		"Exception_Line_Number": "40",
+		"Method_Id": "1",
+		"Package_Name": "com.fico.SampleTest",
+		"Method_Name": "except"
+	}, {
+		"Variables": {
+			"flag": 20,
+			"this": {
+				"hello_var": "2000",
+				"chang": "G"
+			}
+		},
+		"Class_Name": "SampleTest",
+		"Exception_Line_Number": "7",
+		"Method_Id": "2",
+		"Package_Name": "com.fico.SampleTest",
+		"Method_Name": "do_work"
+	}, {
+		"Variables": {
+			"args": [],
+			"pqr": [10, 12, 13, 14, 1, 4],
+			"str": ["hello", "world", "how"],
+			"s": "sachin",
+			"e": {
+				"hello_var": "2000",
+				"chang": "G"
+			},
+			"new_class_array": [{
+				"p1": "100",
+				"p2": "100"
+			}, {
+				"p1": "200",
+				"p2": {
+					"c1":"300",
+					"c2":[
+						{
+							"a1":"300"
+						},
+						{
+							"a2":{
+								"b1":"300",
+								"b2":{
+									"d1":"300",
+									"d2":"300"
+								}
+							}
+						}
+					]
+				}
+			}],
+			"i": 10,
+			"var2": 83,
+			"m": "maurya",
+			"var1": 100.0,
+			"bool_ar": [true, false, true, true, false]
+		},
+		"Class_Name": "SampleTest",
+		"Exception_Line_Number": "144",
+		"Method_Id": "3",
+		"Package_Name": "com.fico.SampleTest",
+		"Method_Name": "main"
+	}]
+]

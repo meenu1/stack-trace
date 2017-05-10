@@ -1,48 +1,56 @@
 <h4>Stack Trace</h4>
 
-<div class="row">
+<div class="row main-container">
   <div class="col-lg-4 col-md-5 col-sm-12 left">
 
     <ul class="stack-trace">
-      <li *ngFor="let stack of stackTrace" (click)="setSelectedStack(stack)" [ngClass]="{'selected': stack == selectedStack}">{{stack.class_name}}.{{stack.method_name}}</li>
+      <li *ngFor="let stack of stackTrace" (click)="selectedStackName(stack)" [ngClass]="{'selected': stack == selectedStackNameValue}">{{stack.className}}.{{stack.method}}</li>
     </ul>
 
   </div>
 
-  <!--<span [popover]="testDelete">span</span> | 
-  <button type="button" class="btn btn-success" popover="Vivamus sagittis."popoverTitle="Dismissible popover" triggers="focus">button</button>-->
-
   <div class="col-lg-8 col-md-7 col-sm-12 right" style="display: block; color: #c8c8c8;">
-    <div class="file-name" *ngIf="selectedStack"><h4>{{selectedStack.class_name}}.{{selectedStack.method_name}}</h4></div> 
-    <div *ngFor="let line of sourceCode?.source">
-      <div>
-
-        <div class="line-number">{{line.lineNumber}}</div>
-        <!--<div class="line-code">{{line.lineCode}}</div>-->
-        <div class="line-code">
-          <div [ngSwitch]="isArray(line.lineCode)">
-            <div *ngSwitchCase="false" style="white-space: pre;">{{line.lineCode}}</div>
-            <div *ngSwitchCase="true">
-              <span *ngFor="let li of line.lineCode"><span [ngSwitch]="li.isValueAvailable"><span *ngSwitchCase="false" style="white-space: pre;">{{li.line}}</span><span *ngSwitchCase="true" style="white-space: pre;"><button  #pop="bs-popover" [popover]="getVariableValue(li.line)" triggers="focus" type="button" class="variable">{{li.line}}</button></span></span></span>
-            </div>
+    <div *ngFor="let stackTemp of stackTrace" class="{{stackTemp.className}}-{{stackTemp.method}} program-stack">
+      <div class="file-name" >
+        <h4>{{stackTemp.className}}.{{stackTemp.method}}</h4>
+        </div> 
+        <div class="row">
+        <div class="col-md-9">
+          <div *ngFor="let line of stackTemp.source">
+              <div>
+                  <div class="line-number">{{line.lineNumber}}</div>
+                  <div class="line-code">
+                    <div [ngSwitch]="isArray(line.lineCode)">
+                      <div *ngSwitchCase="false" style="white-space: pre;">{{line.lineCode}}</div>
+                      <div *ngSwitchCase="true">
+                        <span *ngFor="let li of line.lineCode"><span [ngSwitch]="li.isValueAvailable"><span *ngSwitchCase="false" style="white-space: pre;">{{li.line}}</span><span *ngSwitchCase="true" style="white-space: pre;"><template #popTemplate><div [innerHtml]="getVariableValue(li.line,stackTemp) |sanitizeHtml"></div></template><button  *ngIf="!checkValueOrObject(stackTemp,li.line)" #pop="bs-popover" [popover]="popTemplate" type="button" triggers="mouseenter:mouseleave" data-container="body" class="variable">{{li.line}}</button><button  *ngIf="checkValueOrObject(stackTemp,li.line)" #pop="bs-popover" [popover]="popTemplate" [popoverTitle]="li.line" type="button" triggers="mouseenter:mouseleave" data-container="body"   class="variable">{{li.line}}</button></span></span></span>
+                      </div>
+                    </div>
+                  </div>
+              </div>
           </div>
         </div>
-        <!--<div class="line-code" [innerHTML]="line.lineCode"></div>-->
-
-        <!--<div class="line-code" [innerHTML]="line.lineCode">
-          <template #popTemplate>
-            <div [innerHtml]="line.lineNumber"></div>
-          </template>
-          <button type="button" class="btn btn-success" [popover]="popTemplate">Show me popover with html</button>
-        </div>-->
-
-      </div>
+        <div class="col-md-3 recorded-variables">
+          <div class="row">
+              <div class="col-md-12 header">Recorded Variables
+              </div>
+              <div class="col-md-12 recorded-variable-popup">
+                <div class="row" *ngFor="let val of stackTemp.valueArray;let i=index" [attr.data-index]="i">
+                    <div class="col-md-6">
+                      {{val}}
+                    </div>
+                    <div class="col-md-6 ellipses" *ngIf="!checkValueOrObject(stackTemp,val)">{{stackTemp.value[val]}}
+                    </div>
+                    <div class="col-md-6" *ngIf="checkValueOrObject(stackTemp,val)">
+                          <span class="ellipses manage-object">{{val.toUpperCase()}}</span>
+                          <span class="glyphicon glyphicon-triangle-bottom"></span>
+                    </div>
+                    <show-multiple-object [stackTraceObject]="stackTemp.value" [stackTraceValue]="val" class="close-accordion"></show-multiple-object>
+                </div>
+              </div>
+          </div>
+        </div>
     </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
+    </div>
   </div>
 </div>
